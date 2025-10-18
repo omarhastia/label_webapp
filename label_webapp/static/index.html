@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Label Builder</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<main class="container">
+<h1>Label Builder</h1>
+
+
+<section class="drop-row">
+<div class="dropzone" id="barcodesDrop" data-accept=".pdf">
+<strong>Barcodes PDF</strong>
+<p>Drag a PDF here or click to choose.</p>
+<input type="file" id="barcodesInput" accept="application/pdf" hidden />
+<div class="file-info" id="barcodesInfo"></div>
+</div>
+
+
+<div class="dropzone" id="templateDrop" data-accept=".pdf,.docx">
+<strong>Template (optional)</strong>
+<p>PDF or DOCX background.</p>
+<input type="file" id="templateInput" accept="application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" hidden />
+<div class="file-info" id="templateInfo"></div>
+</div>
+</section>
+
+
+<section class="grid">
+<label>Rotate deg <input id="rotate" type="number" step="1" value="90"></label>
+<label>Left X (in) <input id="leftX" type="number" step="0.1" value="5.1"></label>
+<label>Right X (in) <input id="rightX" type="number" step="0.1" value="10.1"></label>
+<label>Row centers (in) <input id="rows" type="text" value="7.4,5.4,3.4,1.4"></label>
+<label>Box W (in) <input id="boxW" type="number" step="0.01" value="1.75"></label>
+<label>Box H (in) <input id="boxH" type="number" step="0.01" value="2.5"></label>
+<label>Barcodes DPI <input id="dpiB" type="number" step="1" value="300"></label>
+<label>Template DPI <input id="dpiT" type="number" step="1" value="300"></label>
+<label>Fill order
+<select id="fillOrder">
+<option value="zigzag" selected>zigzag</option>
+<option value="left_first">left_first</option>
+</select>
+</label>
+</section>
+
+
+<button id="runBtn" disabled>Build Labels</button>
+
+
+<div id="status" class="status hidden"></div>
+<a id="downloadLink" class="hidden" download="labels_ready.pdf">Download finished labels</a>
+</main>
+
+
+<script src="/script.js"></script>
+</body>
+</html>
